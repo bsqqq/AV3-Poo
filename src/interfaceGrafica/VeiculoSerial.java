@@ -64,8 +64,13 @@ public class VeiculoSerial implements Serializable{
 	}
 
 
-	public boolean isBancoDeCouro() {
-		return bancoDeCouro;
+	public String isBancoDeCouro() {
+		if (bancoDeCouro) {
+			return "sim";
+		}
+		else {
+			return "nao";	
+		}
 	}
 
 
@@ -74,8 +79,13 @@ public class VeiculoSerial implements Serializable{
 	}
 
 
-	public boolean isConversivel() {
-		return Conversivel;
+	public String isConversivel() {
+		if (Conversivel) {
+			return "sim";
+		}
+		else {
+			return "nao";	
+		}
 	}
 
 
@@ -84,8 +94,13 @@ public class VeiculoSerial implements Serializable{
 	}
 
 
-	public boolean isSedan() {
-		return Sedan;
+	public String isSedan() {
+		if (Sedan) {
+			return "sim";
+		}
+		else {
+			return "nao";	
+		}
 	}
 
 
@@ -94,8 +109,13 @@ public class VeiculoSerial implements Serializable{
 	}
 
 
-	public boolean isAuto() {
-		return auto;
+	public String isAuto() {
+		if (auto) {
+			return "sim";
+		}
+		else {
+			return "nao";	
+		}
 	}
 
 

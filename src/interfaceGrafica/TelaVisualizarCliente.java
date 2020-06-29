@@ -74,6 +74,8 @@ public class TelaVisualizarCliente extends JFrame {
 		textFieldNomeDoCliente.setBounds(33, 62, 219, 22);
 		contentPane.add(textFieldNomeDoCliente);
 		
+		
+		
 		Label label = new Label("Insira o Nome do cliente Para Abri-l\u00F3");
 		label.setBounds(33, 39, 219, 22);
 		contentPane.add(label);
@@ -117,6 +119,7 @@ public class TelaVisualizarCliente extends JFrame {
 		labelNomeDoCliEdit.setBackground(Color.LIGHT_GRAY);
 		labelNomeDoCliEdit.setBounds(33, 130, 123, 22);
 		contentPane.add(labelNomeDoCliEdit);
+		labelNomeDoCliEdit.setText(NomeDoClient);
 		
 		Label labelConversivelEdit = new Label("");
 		labelConversivelEdit.setBackground(Color.LIGHT_GRAY);
@@ -168,6 +171,12 @@ public class TelaVisualizarCliente extends JFrame {
 					cs = (ClienteSerial) abjarq.readObject();
 					NomeDoClient = cs.getNome();
 					CPFdoClient = cs.getCpf();
+					labelCpfEdit.setText(CPFdoClient);
+					labelNomeDoCliEdit.setText(NomeDoClient);
+					labelSedanEdit.setText(cs.isSedan());
+					labelAutomaticoEdit.setText(cs.isAuto());
+					labelConversivelEdit.setText(cs.isConversivel());
+					labelBancoDeCouroEdit.setText(cs.isBancoDeCouro());
 					abjarq.close();
 					System.out.println("Objeto lido \n " + cs);
 				} catch (FileNotFoundException e) {
@@ -183,7 +192,6 @@ public class TelaVisualizarCliente extends JFrame {
 		});
 		buttonBuscar.setBounds(484, 321, 90, 30);
 		contentPane.add(buttonBuscar);
-		
 		
 	}
 }

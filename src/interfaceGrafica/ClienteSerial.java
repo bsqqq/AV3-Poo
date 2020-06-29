@@ -41,32 +41,53 @@ public class ClienteSerial implements Serializable{
 		this.nome = nome;
 	}
 
-	public boolean isBancoDeCouro() {
-		return bancoDeCouro;
+	public String isBancoDeCouro() {
+		if (bancoDeCouro) {
+			return "sim";
+		}
+		else {
+			return "nao";	
+		}
+		
 	}
 
 	public void setBancoDeCouro(boolean bancoDeCouro) {
 		this.bancoDeCouro = bancoDeCouro;
 	}
 
-	public boolean isConversivel() {
-		return conversivel;
+	public String isConversivel() {
+		if (conversivel) {
+			return "sim";
+		}
+		else {
+			return "nao";	
+		}
 	}
 
 	public void setConversivel(boolean conversivel) {
 		this.conversivel = conversivel;
 	}
 	
-	public boolean isSedan() {
-		return Sedan;
+	public String isSedan() {
+		if (Sedan) {
+			return "sim";
+		}
+		else {
+			return "nao";	
+		}
 	}
 
 	public void setSedan(boolean sedan) {
 		Sedan = sedan;
 	}
 
-	public boolean isAuto() {
-		return auto;
+	public String isAuto() {
+		if (auto) {
+			return "sim";
+		}
+		else {
+			return "nao";	
+		}
 	}
 
 	public void setAuto(boolean auto) {

@@ -36,9 +36,7 @@ public class TelaVisualizarCarro extends JFrame {
 	FileInputStream fluxo;
 	private JPanel contentPane;
 	private TelaPrincipal telaIni;
-	String AnoDoCarro, ModeloDoCarro, MarcaDoCarro;
-	boolean bancoDeCouro, Sedan, Conversivel, Automatico;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -105,7 +103,6 @@ public class TelaVisualizarCarro extends JFrame {
 		labelAnoDoCarroEdit.setBackground(Color.LIGHT_GRAY);
 		labelAnoDoCarroEdit.setBounds(129, 180, 123, 22);
 		contentPane.add(labelAnoDoCarroEdit);
-		labelAnoDoCarroEdit.setText(AnoDoCarro);
 		
 		Label label_1_1_1 = new Label("Ano do Carro:");
 		label_1_1_1.setBounds(33, 180, 90, 22);
@@ -115,7 +112,6 @@ public class TelaVisualizarCarro extends JFrame {
 		labelMarcaEdit.setBackground(Color.LIGHT_GRAY);
 		labelMarcaEdit.setBounds(129, 140, 123, 22);
 		contentPane.add(labelMarcaEdit);
-		labelMarcaEdit.setText(MarcaDoCarro);
 		
 		Label label_1_1 = new Label("Modelo do Carro:");
 		label_1_1.setBounds(33, 100, 90, 22);
@@ -125,7 +121,6 @@ public class TelaVisualizarCarro extends JFrame {
 		labelModeloEdit.setBackground(Color.LIGHT_GRAY);
 		labelModeloEdit.setBounds(129, 100, 123, 22);
 		contentPane.add(labelModeloEdit);
-		labelModeloEdit.setText(ModeloDoCarro);
 		labelModeloEdit.setVisible(true);
 		
 		Label labelConversivelEdit = new Label("");
@@ -171,17 +166,16 @@ public class TelaVisualizarCarro extends JFrame {
 					fluxo = new FileInputStream(textFieldModeloCarro.getText() + ".txt");
 					ObjectInputStream abjarq = new ObjectInputStream(fluxo);
 					vs = (VeiculoSerial) abjarq.readObject();
-					MarcaDoCarro = vs.getMarcaDoCarro();
-					ModeloDoCarro = vs.getModeloDoCarro();
-					AnoDoCarro = vs.getAnoDoCarro();
-					bancoDeCouro = vs.isBancoDeCouro();
-					Sedan = vs.isSedan();
-					Conversivel = vs.isConversivel();
-					Automatico = vs.isAuto();
-					System.out.println(MarcaDoCarro + " " + ModeloDoCarro);
+					labelAnoDoCarroEdit.setText(vs.getAnoDoCarro());
+					labelMarcaEdit.setText(vs.getMarcaDoCarro());
+					labelModeloEdit.setText(vs.getModeloDoCarro());
+					labelSedanEdit.setText(vs.isSedan());
+					labelAutomaticoEdit.setText(vs.isAuto());
+					labelConversivelEdit.setText(vs.isConversivel());
+					labelBancoDeCouroEdit.setText(vs.isBancoDeCouro());
+					System.out.println(vs.getMarcaDoCarro() + " " + vs.getModeloDoCarro());
 					abjarq.close();
-					
-					System.out.println("Objeto lido \n " + vs);
+					System.out.println("Objeto lido \n" + vs);
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				}
