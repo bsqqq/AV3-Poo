@@ -138,7 +138,7 @@ public class TelaCadastrarCarro extends JFrame {
 						checkbox_Automatico.getState());
 				FileOutputStream fluxo;
 				try {
-					fluxo = new FileOutputStream(vs.getModeloDoCarro() + ".txt");
+					fluxo = new FileOutputStream(vs.getModeloDoCarro() + ".carro");
 					ObjectOutputStream objarq = new ObjectOutputStream(fluxo);
 					objarq.writeObject(vs);
 					objarq.close();

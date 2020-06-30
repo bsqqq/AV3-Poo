@@ -163,7 +163,7 @@ public class TelaVisualizarCarro extends JFrame {
 		buttonBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					fluxo = new FileInputStream(textFieldModeloCarro.getText() + ".txt");
+					fluxo = new FileInputStream(textFieldModeloCarro.getText() + ".carro");
 					ObjectInputStream abjarq = new ObjectInputStream(fluxo);
 					vs = (VeiculoSerial) abjarq.readObject();
 					labelAnoDoCarroEdit.setText(vs.getAnoDoCarro());
@@ -178,6 +178,8 @@ public class TelaVisualizarCarro extends JFrame {
 					System.out.println("Objeto lido \n" + vs);
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
+					System.err.println("Carro não encontrado. Talvez você ainda não cadastrou este carro ou ele foi excluído.");
+					JOptionPane.showMessageDialog(null, "Carro não encontrado. Talvez você ainda não cadastrou este carro ou ele foi excluído.");
 				}
 				catch (IOException e) {
 					e.printStackTrace();

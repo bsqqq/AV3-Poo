@@ -166,7 +166,7 @@ public class TelaVisualizarCliente extends JFrame {
 		buttonBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					fluxo = new FileInputStream(textFieldNomeDoCliente.getText() + ".txt");
+					fluxo = new FileInputStream(textFieldNomeDoCliente.getText() + ".cliente");
 					ObjectInputStream abjarq = new ObjectInputStream(fluxo);
 					cs = (ClienteSerial) abjarq.readObject();
 					NomeDoClient = cs.getNome();
@@ -181,6 +181,8 @@ public class TelaVisualizarCliente extends JFrame {
 					System.out.println("Objeto lido \n " + cs);
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
+					System.err.println("Cliente não encontrado. Talvez você ainda não cadastrou este cliente ou ele foi excluído.");
+					JOptionPane.showMessageDialog(null, "Cliente não encontrado. Talvez você ainda não cadastrou este cliente ou ele foi excluído.");
 				}
 				catch (IOException e) {
 					e.printStackTrace();

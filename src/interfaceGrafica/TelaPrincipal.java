@@ -54,7 +54,6 @@ public class TelaPrincipal {
 		frame.setLocationRelativeTo(null);
 		
 		TelaCadastrarCliente telaCadCli = new TelaCadastrarCliente();
-		
 		JButton btnCadastrarCliente = new JButton("Cadastrar Cliente");
 		btnCadastrarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

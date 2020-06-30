@@ -134,7 +134,7 @@ public class TelaCadastrarCliente extends JFrame {
 						checkbox_Automatico.getState());
 				FileOutputStream fluxo;
 				try {
-					fluxo = new FileOutputStream(cs.getNome() + ".txt");
+					fluxo = new FileOutputStream(cs.getNome() + ".cliente");
 					ObjectOutputStream objarq = new ObjectOutputStream(fluxo);
 					objarq.writeObject(cs);
 					objarq.close();
